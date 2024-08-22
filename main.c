@@ -129,11 +129,11 @@ void searchPatient() {
 
 void printAllPatients() {
     if ((filePtr = fopen("patientRecords.dat", "r")) != NULL) {
-        printf("ID\tName\tAge\tIllness\n");
-        printf("-----------------------\n");
+        printf("ID\tName\t\t\tAge\tIllness\n");
+        printf("-------------------------------\n");
         while (fread(&patient, sizeof(struct Patient), 1, filePtr)) {
             if (patient.id != 0) {
-                printf("%d\t%s\t%d\t%s\n", patient.id, patient.name, patient.age, patient.illness);
+                printf("%d\t%-15s\t%d\t%s\n", patient.id, patient.name, patient.age, patient.illness);
             }
         }
         fclose(filePtr);
